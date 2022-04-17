@@ -1,4 +1,4 @@
-# Cyclonet
+# CycloNet
 
 ## Cyclone Intensity Estimation
 
@@ -73,8 +73,7 @@ DiscordTag: jenzen#1132
 
 ## Links and References: 
 
-- [Devfolio](your_devfolio_link_here)
 
-- [GitHub](your_github_link_here)
+- [GitHub](https://github.com/cycloneintensity/CrossKnotHacks-Cyclonet)
 
-- [Youtube](your_demo_video_link_here)
+- [Youtube](https://www.youtube.com/watch?v=MDmG44oK8Bs)
