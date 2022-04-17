@@ -56,12 +56,12 @@ DiscordTag: jenzen#1132
 ![Form](https://user-images.githubusercontent.com/101162842/163724953-f8479e57-267e-4560-8a1c-9761afe49f35.jpg)
 
 
-``Live Weather Map:`` showing live wind patterns
+``Live Weather Map:`` showing live wind patterns and redirects the map to the coordinates recieved as input, incase of a cyclone, highlights the area with strong wind pattern
 
 ![Windy map](https://user-images.githubusercontent.com/101162842/163724954-7d91ff9a-be77-436a-967c-a067c485af4f.jpg)
 
 
-``Archive Table:`` displaying all previously uploaded data
+``Archive Table:`` displaying all previously uploaded data stored in database
 
 ![Archive Table](https://user-images.githubusercontent.com/101162842/163724961-db84f65f-4d13-49dc-8d97-d30726918a14.jpg)
 
