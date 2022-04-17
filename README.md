@@ -1,6 +1,6 @@
 # CycloNet
 
-## Cyclone Intensity Estimation
+## Cyclone Intensity Estimation using Deep Learning
 
 A Web-App User Interface where the user can upload INSAT-3D IR Satellite Image of Cyclone which is then passed to our Deep Convolutional Neural Network built in PyTorch which is trained on Cyclone imagery of various intensities on our custom dataset curated from Raw INSAT-3D satellite captured images on MOSDAC server. 
 
