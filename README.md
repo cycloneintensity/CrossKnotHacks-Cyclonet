@@ -22,7 +22,7 @@ Machine-learning-pipeline: PyTorch
 
 ```
 Team Leader Name: Sshubam Verma
-Team Member GitHub: Sshubam
+Team Leader GitHub: Sshubam
 Linkedin: https://www.linkedin.com/in/sshubam-verma-7b70bb19b/
 DiscordTag: Sshubam#5388
 
