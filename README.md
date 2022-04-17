@@ -46,7 +46,30 @@ DiscordTag: jenzen#1132
 
 ## Screenshots and reference Images
 
-``It includes some screenshots and images of your project.``
+``Home section:`` landing section of the website
+
+![Hero](https://user-images.githubusercontent.com/101162842/163724950-78dbfb1e-c414-4d2d-8a12-b7d4b2d4bdc6.jpg)
+
+
+``Form section:`` used to pass the image to the model and get intensity
+
+![Form](https://user-images.githubusercontent.com/101162842/163724953-f8479e57-267e-4560-8a1c-9761afe49f35.jpg)
+
+
+``Live Weather Map:`` showing live wind patterns
+
+![Windy map](https://user-images.githubusercontent.com/101162842/163724954-7d91ff9a-be77-436a-967c-a067c485af4f.jpg)
+
+
+``Archive Table:`` displaying all previously uploaded data
+
+![Archive Table](https://user-images.githubusercontent.com/101162842/163724961-db84f65f-4d13-49dc-8d97-d30726918a14.jpg)
+
+
+``Submitted Image:`` Would be displayed as
+
+![Image image](https://user-images.githubusercontent.com/101162842/163724965-9bdb6f09-1d3f-4d4b-be08-dfd7bfdcde03.jpg)
+
 
 ## Links and References: 
 
