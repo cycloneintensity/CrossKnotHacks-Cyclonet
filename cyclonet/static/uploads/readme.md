@@ -1,1 +1,1 @@
-#Saves the image uploaded
+Saves the image uploaded
