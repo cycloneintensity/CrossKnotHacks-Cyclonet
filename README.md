@@ -51,7 +51,7 @@ DiscordTag: jenzen#1132
 ![Hero](https://user-images.githubusercontent.com/101162842/163724950-78dbfb1e-c414-4d2d-8a12-b7d4b2d4bdc6.jpg)
 
 
-``Form section:`` used to pass the image to the model and get intensity
+``Form section:`` used to pass the image to the model which computes intensity and forwards input data to the archive via database
 
 ![Form](https://user-images.githubusercontent.com/101162842/163724953-f8479e57-267e-4560-8a1c-9761afe49f35.jpg)
 
