@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Cyclonet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <!--        Windy files-->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+
+    <!-- Template Main CSS File -->
+    <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+
+  <section id="title" class="stacking-slide">
+
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">CycloNet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="">Insert Image</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--              <a class="nav-link" href="">Map</a>-->
+<!--            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('archive')}}">Archive</a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+      <!-- Title -->
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="big-heading">Get cyclone intensity with the click of a button.</h1>
+          <a type="button" class="btn btn-dark btn-lg download-button" href="#form">Insert Your Image</a>
+          <a type="button" class="btn btn-outline-light btn-lg download-button" href = "#windy">Live Weather Map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--Form-->
+  <section class="Form-back scroll-area stacking-slide" id="form">
+
+        <div class="rain-effect back-row-toggle splat-toggle">
+      <div class="rain front-row"></div>
+      <div class="rain back-row"></div>
+<!--      <div class="toggles">-->
+<!--&lt;!&ndash;        <div class="splat-toggle toggle active">SPLAT</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="back-row-toggle toggle active">BACK<br>ROW</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="single-toggle toggle">SINGLE</div>&ndash;&gt;-->
+<!--    </div>-->
+    </div>
+      <div id="form-area">
+      <!-- <h3>Form</h3> -->
+        <form method = "post" action="{{url_for('index')}}#form" class="row g-5 col-md-7 p-3 mb-2  text-dark border form_prop" enctype="multipart/form-data">
+    <div class="col-md-5">
+      <label for="Date">Date:</label>
+      <input type="date" id="Date" name="image_date" class="rounded">
+    </div>
+    <div class="col-md-5">
+      <label for="Time">Time:</label>
+      <input type="time" id="Time" name="image_time" class="rounded">
+    </div>
+
+    <div class="col-md-6">
+      <label for="Lat" class="form-label">Latitude</label>
+      <input type="number" step="0.01" class="form-control rounded" id="Lat" name = "latitude">
+    </div>
+    <div class="col-md-6">
+      <label for="Lng" class="form-label">Longitude</label>
+      <input type="number" step="0.01" class="form-control rounded" id="Lng" name = "longitude">
+    </div>
+    <div>
+            <form class="p-3text-center"action="/", method="post" enctype="multipart/form-data">
+              <div class="custom-file d-inline-flex p-2 bd-highlight">
+                <label class="custom-file-label" for="imagefile">Upload Image (jpeg/png/jpg):</label>
+                <input style ="margin-left:20px;" type="file" name="imagefile" id="imagefile" accept=".jpeg, .jpg, .png" required>
+                </div>
+              <center>
+                {% if prediction %}
+                <div style="margin-top: 20px">
+                  <i class="fas fa-solid fa-check check"></i>
+                <span class="text text-1">Success.</span>
+                <span class="text text-2"> Calculated Intensity: {{prediction}} knots</span>
+                  </div>
+                {% endif %}
+                <input style="font-size:20px;"class="btn btn-primary mt-3" type="submit" value="Compute Intensity">
+                </center>
+            </form>
+      </div>
+    <button type="button" class="btn btn-primary" id="liveToastBtn" style="display:none">Show live toast</button>
+  </form>
+        <div class="waves" style="height:250px"></div>
+      </div>
+
+</section>
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+      <div class="toast-body">
+        The intensity of the uploaded image is: {{prediction}} knots
+        <div class="mt-2 pt-2 border-top">
+          <a type="button" class="btn btn-primary btn-sm" href="{{url_for('archive')}}">Archive</a>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!--Windy-->
+  <section class="map-flowchart stacking-slide">
+          <div id="windy"></div>
+            <div class="windy-element">
+              
+              <!-- <label class="map-label" for="lat">Latitude: </label>
+              <input type="number" step = "0.001" id="lat">
+              <label class="map-label" for="lng">Longitude: </label>
+              <input type="number" step = "0.001" id="lng"> -->
+              <div class="flex-container">
+                <div style="display:block; padding-right:5px;">
+                <label for="Lat" class="form-label">Latitude</label>
+                <input type="number" step="0.01" class="form-control rounded" id="f1">
+                  </div>
+                <div style="display:block; margin-left:5px;">
+                <label for="Lng" class="form-label">Longitude</label>
+                <input type="number" step="0.01" class="form-control rounded" id="f2">
+                  </div>
+                </div>
+              <div class="container" style="text-align:center;">
+              <button id="map-button" class="btn btn-primary mt-3" style=" margin-top:25px; margin-bottom:25px">Locate</button>
+            </div>  
+          </div>
+<!--    <canvas id="lineChart" height="400" width="400"></canvas>-->
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename ='javascript/script.js')}}"></script>
+  <script>
+makeItRain({{rain}});
+</script>
+</body>
+
+</html>
