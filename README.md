@@ -77,3 +77,5 @@ DiscordTag: jenzen#1132
 - [GitHub](https://github.com/cycloneintensity/CrossKnotHacks-Cyclonet)
 
 - [Youtube](https://www.youtube.com/watch?v=MDmG44oK8Bs)
+
+- [Devfolio](https://devfolio.co/projects/cyclonet-fd57)
