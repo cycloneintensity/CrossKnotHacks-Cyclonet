@@ -12,7 +12,7 @@ The Model will return the estimated Intensity of satellite cyclone image in KNOT
 
 Front-end: HTML , CSS, Bootstrap and JavaScript
 
-Back-end: Flask, PostgreSQL, psycopg2 and Python
+Back-end: PostgreSQL, Flask, psycopg2 and Python
 
 Machine-learning-pipeline: PyTorch
 
