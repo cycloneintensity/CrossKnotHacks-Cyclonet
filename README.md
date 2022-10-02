@@ -8,6 +8,10 @@ The CNN eliminates the need for usage of traditional methods for accurate center
 
 The Model will return the estimated Intensity of satellite cyclone image in KNOTS instantly, the user would also have the option to upload metadata values like Datetime, latitudinal position, etc. for the Cyclonic event which will be stored in the Database pushing it in a archive of all past cyclonic events that have been inputted in the interface. User can view the past cyclonic events in the database with event-related metadata in the archive and visualize the imagery. Flask will be used to integrate the web-application together in Python.
 
+## Dataset
+
+[Curated Dataset link](https://www.kaggle.com/datasets/sshubam/insat3d-infrared-raw-cyclone-images-20132021)
+
 ## Tech Stack Used
 
 Front-end: HTML , CSS, Bootstrap and JavaScript
