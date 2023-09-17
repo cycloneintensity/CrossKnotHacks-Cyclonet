@@ -43,7 +43,7 @@ DiscordTag: Amith#3879
 
 Team Member Name: Ishank Jena
 Team Member GitHub: ishankjena
-Linkedin: https://www.linkedin.com/in/ishank-jena-3362b2212/
+Linkedin: https://www.linkedin.com/in/ishankjena/
 DiscordTag: jenzen#6969
 ```
 
